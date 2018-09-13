@@ -639,7 +639,7 @@ function setup() {
                     player.vx = 2;
                 }
             }
-            else if (e.keyCode == "70" && shootPowerUp === true && uLost ===false){
+            else if (e.keyCode == "70" || e.keyCode == "32" && shootPowerUp === true && uLost ===false){
                 
                 spawnBullet();
             }
