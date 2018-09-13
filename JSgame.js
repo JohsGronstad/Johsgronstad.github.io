@@ -236,7 +236,7 @@ function setup() {
 
         function checkDifficulty(){
 
-            if (difficulty == 5 && slowDownPowerUp === false){
+            if (difficulty == 9 && slowDownPowerUp === false){
                 clearInterval(addBallInterval);
                 addNewBalls();
                 return;
@@ -251,21 +251,37 @@ function setup() {
             } else if (scoreInt === 20) {
                 difficulty = 1;
                 clearInterval(addBallInterval);
-                addBallInterval = setInterval(addNewBalls, 400);
+                addBallInterval = setInterval(addNewBalls, 425);
             } else if (scoreInt === 40) {
                 difficulty = 2;
                 clearInterval(addBallInterval);
-                addBallInterval = setInterval(addNewBalls, 320);
+                addBallInterval = setInterval(addNewBalls, 400);
             } else if (scoreInt === 60) {
                 difficulty = 3;
                 clearInterval(addBallInterval);
-                addBallInterval = setInterval(addNewBalls, 250);
+                addBallInterval = setInterval(addNewBalls, 325);
             } else if (scoreInt === 80) {
                 difficulty = 4;
                 clearInterval(addBallInterval);
-                addBallInterval = setInterval(addNewBalls, 200);
-            } else if (scoreInt > 100) {
+                addBallInterval = setInterval(addNewBalls, 300);
+            }  else if (scoreInt === 100) {
                 difficulty = 5;
+                clearInterval(addBallInterval);
+                addBallInterval = setInterval(addNewBalls, 275);
+            }   else if (scoreInt === 120) {
+                difficulty = 6;
+                clearInterval(addBallInterval);
+                addBallInterval = setInterval(addNewBalls, 250);
+            }   else if (scoreInt === 140) {
+                difficulty = 7;
+                clearInterval(addBallInterval);
+                addBallInterval = setInterval(addNewBalls, 225);
+            }   else if (scoreInt === 160) {
+                difficulty = 8;
+                clearInterval(addBallInterval);
+                addBallInterval = setInterval(addNewBalls, 200);
+            }   else if (scoreInt > 180) {
+                difficulty = 9;
             }
 
         }
