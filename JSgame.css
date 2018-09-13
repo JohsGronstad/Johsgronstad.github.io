@@ -1,0 +1,215 @@
+
+
+body {
+    background-color: rgb(2, 2, 49);;
+}
+
+
+#main {
+    
+    
+    position: absolute;
+    left: 400px;
+    width: 600px;
+    height: 800px;
+
+    background-image: url("pics/Space.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
+div.btnRestart{
+    color:  rgb(68, 68, 139);
+    font: bolder;
+    font-size: 2em;
+    position: absolute;
+    left: calc(300px - 55px);
+    top: 400px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+}
+
+div.heart{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url("pics/heart2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.lifeScore{
+
+    position: absolute;
+    font-size: 1.5em;
+    color:  rgb(68, 68, 139);
+    left: 490px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+
+
+}
+
+btnMainMenu{
+    color:  rgb(68, 68, 139);
+    font: bolder;
+    font-size: 2em;
+    position: absolute;
+    left: calc(300px - 120px);
+    top: 500px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+}
+
+#borderLeft{
+    
+    position: absolute;
+    left: -200px;
+    width: 200px;
+    height: 800px;
+    background-color: rgb(2, 2, 49);;
+    z-index: 10;
+
+}
+
+#borderRight{
+  
+    background-color: rgb(2, 2, 49);;
+    position: absolute;
+    left: 600px;
+    width: 200px;
+    height: 800px;
+    z-index: 10;
+   
+}
+
+div.player {
+    
+    position: absolute;
+    top: 500px;
+    left: 284px;
+    width: 45px;
+    height: 80px;
+    
+    background-image: url("pics/spaceship.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#start {
+    color:  rgb(68, 68, 139);
+    font: bolder;
+    font-size: 2em;
+    position: absolute;
+    left: calc(300px - 50px);
+    top: 400px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+    text-decoration: none;
+}
+
+#controls{
+    color:  rgb(68, 68, 139);
+    font: bolder;
+    font-size: 1.5em;
+    position: absolute;
+    left: calc(300px - 68px);
+    top: 500px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+
+}
+div.ball {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url("pics/meteoren.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#finalScore{
+    position: relative;
+    left: calc(300px - 3em);
+    top: 200px;
+    z-index: 1;
+    color:  rgb(68, 68, 139);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+
+
+}
+
+#score{
+    position: absolute;
+    font-size: 1.5em;
+    color:  rgb(68, 68, 139);
+    left: 300px - 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+
+
+}
+
+#menuTitle{
+    color:  rgb(68, 68, 139);
+    font-size: 4em;
+    position: relative;
+    left: calc(300px - 190px);
+    top: 150px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+
+}
+
+div.coin {
+    position: absolute;
+    background-image: url("pics/stardust2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
+div.bullet{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-image: url("pics/Laser.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
+.powerUpText{
+    position: relative;
+    left: calc(300px - 4em);
+    font-size: 2em;
+    top: 100px;
+    z-index: 1;
+    color:  rgb(68, 68, 139);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+}
+
+
+
+table, th, td {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:  whitesmoke;
+    border: 2px solid rgb(108, 108, 143);;
+    border-collapse: collapse;
+   
+}
+th, td {
+    padding: 15px;
+}
+
+table{
+    position: absolute;
+    left: 120px;
+    top: 300px;
+}
+
