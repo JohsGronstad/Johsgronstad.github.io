@@ -406,6 +406,7 @@ function setup() {
             animateCoin();
             animateBullet();
             animateHearts();
+            console.log(lifeInt);
         }
 
         
@@ -438,10 +439,14 @@ function setup() {
                 if (kollisjon(player, ball)) {
                     if (uLost === true)return;
 
-                    lifeInt -=1;
-                    baller.splice(i, 1);
-                    ball.div.remove();
-                    divLife.innerHTML = "lives: " + lifeInt;
+                    if(uLost === false && lifeInt >=1){
+                        lifeInt -=1;
+                        baller.splice(i, 1);
+                        divLife.innerHTML = "lives: " + lifeInt;
+                        console.log("WHAT");
+                    }
+
+
                     //changes uLost to true which turns off animations
                     if (uLost === false && lifeInt<1){
                         uLost = true;
@@ -460,17 +465,24 @@ function setup() {
                         btnRestart.innerHTML = "Restart";
                         divMain.appendChild(btnRestart);
                         btnRestart.addEventListener("click", reloadFunction);
+
+                        baller.splice(i, 1);
+                        
+                        
                         function reloadFunction(){
                             location.reload();
                         }
 
                         divLife.innerHTML = "";
 
+                        return;
                     }
 
+                    if(uLost === false && lifeInt >=1){
+                        ball.div.remove();
+                    }
 
                     
-
                     //stops collision
                     console.log("collision!")
                 }
@@ -597,6 +609,10 @@ function setup() {
         function animateBullet(){
             for (let i=0; i<bullets.length; i++){
                 let bullet = bullets[i];
+
+                if(uLost === true){
+                    bullets.splice(i, 1);
+                }
 
                 if (bullet.y <0){
                     bullets.splice(i, 1);
