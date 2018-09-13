@@ -13,7 +13,7 @@ body {
     width: 600px;
     height: 800px;
 
-    background-image: url("pics/Space.jpg");
+    background-image: url("pics/space.jpg");
     background-size: cover;
     background-repeat: repeat-y;
 }
@@ -34,7 +34,7 @@ div.heart{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-image: url("pics/heart2.png");
+    background-image: url("pics/heart.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -47,6 +47,7 @@ div.lifeScore{
     left: 490px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+    z-index: 1;
 
 
 }
@@ -125,7 +126,7 @@ div.ball {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-image: url("pics/meteoren.png");
+    background-image: url("pics/meteor.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -149,6 +150,7 @@ div.ball {
     left: 300px - 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
+    z-index: 1;
 
 
 }
@@ -166,7 +168,7 @@ div.ball {
 
 div.coin {
     position: absolute;
-    background-image: url("pics/stardust2.png");
+    background-image: url("pics/stardust.png");
     background-size: cover;
     background-repeat: no-repeat;
    
@@ -177,7 +179,7 @@ div.bullet{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-image: url("pics/Laser.png");
+    background-image: url("pics/laser.png");
     background-size: cover;
     background-repeat: no-repeat;
    
