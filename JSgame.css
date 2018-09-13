@@ -77,6 +77,26 @@ btnMainMenu{
 
 }
 
+#borderTop{
+    position: absolute;
+    top: -200px;
+    width: 600px;
+    height: 200px;
+    background-color: rgb(2, 2, 49);;
+    z-index: 10;
+
+}
+
+#borderBottom{
+    position: absolute;
+    top: 800px;
+    width: 600px;
+    height: 200px;
+    background-color: rgb(2, 2, 49);;
+    z-index: 10;
+
+}
+
 #borderRight{
   
     background-color: rgb(2, 2, 49);;

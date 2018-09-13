@@ -429,7 +429,7 @@ function setup() {
                     //changes uLost to true which turns off animations
                     if (uLost === false && lifeInt<1){
                         uLost = true;
-                        player.div.style.backgroundImage = "url(pics/explosion2.png)";
+                        player.div.style.backgroundImage = "url(pics/explosion.png)";
                         player.div.style.width = "100px";
                         player.div.style.height = "100px";
 
