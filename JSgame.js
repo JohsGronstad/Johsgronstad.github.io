@@ -424,6 +424,7 @@ function setup() {
             for (let i = 0; i < baller.length; i++) {
                 let ball = baller[i];
 
+
                 //animating balls
                 ball.flytt();
                 ball.render();
@@ -432,7 +433,7 @@ function setup() {
                     ball.vy = 1.5;
                 } else ball.vy = 2.5;
 
-                if(ball.y > screenHeight){
+                if(ball.y > screenHeight + 50){
                     ball.div.remove();
                     baller.splice(i, 1);
                 }
