@@ -177,7 +177,9 @@ function setup() {
 
     let divMainY = 0;
     let lifeInt = 1;
-    let movementInt=0;
+
+    console.log(screenHeight + "test");
+    
 
 
     let divLife  = document.createElement("div")
