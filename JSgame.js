@@ -173,7 +173,7 @@ function setup() {
     let divMain = document.getElementById("main");
 
     let screenHeight = window.innerHeight;
-    divMain.style.height = screenHeight + "xp";
+    divMain.style.height = screenHeight + "px";
 
     let divMainY = 0;
     let lifeInt = 1;

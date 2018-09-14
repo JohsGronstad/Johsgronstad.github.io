@@ -2,8 +2,11 @@
 
 function setup(){
 
-    let divBoard = document.getElementById("board");
+    let divMain = document.getElementById("main");
     var btnStart = document.getElementById("start");
+
+    let ScreenHeight = window.innerHeight;
+    divMain.style.height = ScreenHeight + "px";
 
     let divMenuTitle = document.getElementById("menuTitle");
     divMenuTitle.innerHTML = "Meteor Dodge!";
