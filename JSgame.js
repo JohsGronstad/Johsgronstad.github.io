@@ -179,6 +179,8 @@ function setup() {
     let divMainY = 0;
     let lifeInt = 1;
 
+    document.getElementById("main").style.marginTop = (-screenHeight/2) + "px";
+
 
     let divLife  = document.createElement("div")
     divMain.appendChild(divLife);
