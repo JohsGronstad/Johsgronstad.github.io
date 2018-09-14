@@ -173,12 +173,12 @@ function setup() {
     let divMain = document.getElementById("main");
 
     let screenHeight = window.innerHeight;
-    divMain.style.height = screenHeight + "px";
+    
 
     let divMainY = 0;
     let lifeInt = 1;
 
-    console.log(screenHeight + "test");
+    
     
 
 
@@ -591,14 +591,14 @@ function setup() {
                             shootPowerUp = false;
                             powerUpText.innerHTML ="";
                         }
-                        if (x<50){
+                        if (x<25){
                             slowDownPowerUp = true;
                             powerUpText.innerHTML= "POWER-UP: SLOW!";
                             clearInterval(addBallInterval);
                             addBallInterval = setInterval(addNewBalls, 600);
                             setTimeout(powerUpFunc, 6000);
                             console.log("slow down!");
-                        } else if(x>50){
+                        } else if(x>25){
                             shootPowerUp = true;
                             powerUpText.innerHTML= "POWER-UP: SHOOT!";
                             setTimeout(powerUpFunc, 6000);
