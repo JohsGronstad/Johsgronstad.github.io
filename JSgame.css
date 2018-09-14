@@ -15,7 +15,8 @@ body {
     margin-left: -300px; /*set to a negative number 1/2 of your width*/
 
     width: 600px;
-    height: 800px;
+    height:100vh;
+
 
     background-image: url("pics/space.jpg");
     background-size: cover;
@@ -76,6 +77,7 @@ btnMainMenu{
     z-index: 10;
 
 }
+
 
 #borderTop{
     position: absolute;
