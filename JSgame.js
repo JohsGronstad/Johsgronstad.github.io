@@ -171,15 +171,13 @@ function setup() {
     let divScore = document.getElementById("score");
     let divFinalScore = document.getElementById("finalScore");
     let divMain = document.getElementById("main");
+    
 
     let screenHeight = window.innerHeight;
-    
+    console.log(screenHeight);
 
     let divMainY = 0;
     let lifeInt = 1;
-
-    
-    
 
 
     let divLife  = document.createElement("div")
@@ -224,7 +222,6 @@ function setup() {
 
         setInterval(addHearts, 9000);
 
-        
 
 
         //updates score and difficulty
@@ -414,7 +411,6 @@ function setup() {
             animateCoin();
             animateBullet();
             animateHearts();
-            console.log(screenHeight);
         }
         
         //animates the balls and checks for collision (runs every 0.05s)
@@ -466,6 +462,7 @@ function setup() {
                         divFinalScore.innerHTML = "Final Score: " + scoreInt;  
                         divFinalScore.style.fontSize = "3em";
                         divScore.innerHTML = "";
+                        
 
                         //creates a restart button
                         let btnRestart = document.createElement("div");
@@ -475,6 +472,9 @@ function setup() {
                         btnRestart.addEventListener("click", reloadFunction);
 
                         baller.splice(i, 1);
+
+                        console.log(screenHeight);
+
                         
                         
                         function reloadFunction(){

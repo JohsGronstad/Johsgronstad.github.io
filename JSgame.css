@@ -29,7 +29,7 @@ div.btnRestart{
     font-size: 2em;
     position: absolute;
     left: calc(300px - 55px);
-    top: 40vw;
+    top: 30vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
 }
@@ -49,7 +49,7 @@ div.lifeScore{
     position: absolute;
     font-size: 1.5em;
     color:  rgb(68, 68, 139);
-    top: 1vw;
+    top: 5vw;
     right: 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
@@ -107,7 +107,17 @@ btnMainMenu{
     left: 600px;
     width: 200px;
     height: 100vw;
-    z-index: 10;
+    z-index: 1;
+   
+}
+
+#highScore{
+    background-color: black;
+    position: absolute;
+    left: 620px;
+    width: 350px;
+    height: 100vw;
+    z-index: 2;
    
 }
 
@@ -158,22 +168,20 @@ div.ball {
 }
 
 #finalScore{
-    position: relative;
-    left: calc(300px - 3em);
-    top: 20vw;
+    position: absolute;
+    left: 160px;
+    top: 15vw;
     z-index: 1;
     color:  rgb(68, 68, 139);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
-
-
 }
 
 #score{
     position: absolute;
     font-size: 1.5em;
     color:  rgb(68, 68, 139);
-    top: 1vw;
+    top: 5vw;
     left: 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
@@ -213,7 +221,7 @@ div.bullet{
     position: relative;
     left: calc(300px - 4em);
     font-size: 2em;
-    top: 100px;
+    top: 20vw;
     z-index: 1;
     color:  rgb(68, 68, 139);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
