@@ -147,15 +147,12 @@ class Heart{
     }
 
     moveHeart(){
-        if (this.y > 800){
-            this.div.remove();
-            return;
-        };
+       
         this.y += this.vy;
     }
 
     renderHeart(){
-        if(this.y >800)return;
+
         this.div.style.top = this.y + "px";
         this.div.style.left = this.x + "px";
     }
@@ -174,6 +171,10 @@ function setup() {
     let divScore = document.getElementById("score");
     let divFinalScore = document.getElementById("finalScore");
     let divMain = document.getElementById("main");
+
+    let screenHeight = window.innerHeight;
+    divMain.style.height = screenHeight + "xp";
+
     let divMainY = 0;
     let lifeInt = 1;
     let movementInt=0;
@@ -361,6 +362,11 @@ function setup() {
                 for (let i=0; i<hearts.length; i++){
                     let heart = hearts[i];
 
+                    if (heart.y > screenHeight){
+                        hearts.splice(i, 1);
+                        heart.div.remove();
+                    }
+
                     if (slowDownPowerUp === true){
                         heart.vy = 1.5;
                     } else heart.vy = 2.5;
@@ -408,7 +414,6 @@ function setup() {
             animateHearts();
             console.log(lifeInt);
         }
-
         
         //animates the balls and checks for collision (runs every 0.05s)
         function animering() {
@@ -425,7 +430,7 @@ function setup() {
                     ball.vy = 1.5;
                 } else ball.vy = 2.5;
 
-                if(ball.y > 800){
+                if(ball.y > screenHeight){
                     ball.div.remove();
                     baller.splice(i, 1);
                 }
@@ -550,7 +555,7 @@ function setup() {
                     coin.vy = 2.5
                 }
 
-                if (coin.y>800){
+                if (coin.y>screenHeight){
                     coin.div.remove();
                     coins.splice(i, 1);
                 }
