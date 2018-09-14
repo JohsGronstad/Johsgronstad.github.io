@@ -414,7 +414,7 @@ function setup() {
             animateCoin();
             animateBullet();
             animateHearts();
-            console.log(lifeInt);
+            console.log(screenHeight);
         }
         
         //animates the balls and checks for collision (runs every 0.05s)
@@ -511,7 +511,7 @@ function setup() {
         function addPlayer() {
             //gives the player a start position and speed
             let x = 284;
-            let y = 675;
+            let y = screenHeight -125;
             let vx = 0;
 
             //creats the player using the values above

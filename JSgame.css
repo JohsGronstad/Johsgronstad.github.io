@@ -29,7 +29,7 @@ div.btnRestart{
     font-size: 2em;
     position: absolute;
     left: calc(300px - 55px);
-    top: 400px;
+    top: 40vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
 }
@@ -49,7 +49,8 @@ div.lifeScore{
     position: absolute;
     font-size: 1.5em;
     color:  rgb(68, 68, 139);
-    left: 490px;
+    top: 1vw;
+    right: 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
 
@@ -72,7 +73,7 @@ btnMainMenu{
     position: absolute;
     left: -200px;
     width: 200px;
-    height: 800px;
+    height: 100vw;
     background-color: rgb(2, 2, 49);;
     z-index: 10;
 
@@ -105,7 +106,7 @@ btnMainMenu{
     position: absolute;
     left: 600px;
     width: 200px;
-    height: 800px;
+    height: 100vw;
     z-index: 10;
    
 }
@@ -159,7 +160,7 @@ div.ball {
 #finalScore{
     position: relative;
     left: calc(300px - 3em);
-    top: 200px;
+    top: 20vw;
     z-index: 1;
     color:  rgb(68, 68, 139);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -172,7 +173,8 @@ div.ball {
     position: absolute;
     font-size: 1.5em;
     color:  rgb(68, 68, 139);
-    left: 300px - 2em;
+    top: 1vw;
+    left: 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
 }
