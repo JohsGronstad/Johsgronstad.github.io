@@ -98,7 +98,27 @@ btnMainMenu{
     width: 350px;
     height: 100vw;
     z-index: 2;
+    background-color: black;
+    color: white;
    
+}
+
+input{
+    position: absolute;
+    left: calc(300px - 65px);
+    top: 45vw;
+
+}
+div.SaveHS{
+    
+        color:  rgb(68, 68, 139);
+        font: bolder;
+        font-size: 2em;
+        position: absolute;
+        left: calc(300px - 2em + 8px);
+        top: 50vw;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-shadow:  -1px 0 rgb(195, 195, 243), 0 1px  rgb(195, 195, 243), 1px 0 rgb(195, 195, 243), 0 -1px rgb(195, 195, 243);
 }
 
 div.player {

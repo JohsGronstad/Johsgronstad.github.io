@@ -171,6 +171,10 @@ function setup() {
     let divScore = document.getElementById("score");
     let divFinalScore = document.getElementById("finalScore");
     let divMain = document.getElementById("main");
+    let divHighScore = document.getElementById("highScore");
+
+    divHighScore.innerHTML = localStorage.getItem('player name') + ": " +localStorage.getItem('top score');
+    
     
 
     let screenHeight = window.innerHeight;
@@ -178,6 +182,12 @@ function setup() {
 
     let divMainY = 0;
     let lifeInt = 1;
+    var finalScoreInt =0;
+
+    let playerInput = document.createElement("input");
+    playerInput.className = "playerInput"     
+    divMain.appendChild(playerInput);
+    playerInput.hidden = true;
 
     document.getElementById("main").style.marginTop = (-screenHeight/2) + "px";
 
@@ -464,6 +474,23 @@ function setup() {
                         divFinalScore.innerHTML = "Final Score: " + scoreInt;  
                         divFinalScore.style.fontSize = "3em";
                         divScore.innerHTML = "";
+
+                        //Set HS
+                        
+                        if (scoreInt> +localStorage.getItem('top score')){
+
+                            playerInput.hidden = false;
+
+                            let SaveHS = document.createElement("div");
+                            SaveHS.className = "SaveHS";
+                            SaveHS.innerHTML = "Save HS";
+                            divMain.appendChild(SaveHS);
+                            SaveHS.addEventListener("click", setHighScore);
+
+
+                        }
+                        
+                        
                         
 
                         //creates a restart button
@@ -508,6 +535,14 @@ function setup() {
             }
             
             
+        }
+
+        function setHighScore(){
+            console.log(playerInput.value);
+            localStorage.setItem('player name', playerInput.value);
+
+            localStorage.setItem('top score', scoreInt.toString());
+            divHighScore.innerHTML = localStorage.getItem('player name') + ": " +localStorage.getItem('top score');
         }
 
         //adds new player (runs when btnStart is pressed)
@@ -649,7 +684,6 @@ function setup() {
             }
         }
 
-
         //runs checkKey if a key i pressed.
         document.onkeydown = checkKey;
 
@@ -665,9 +699,9 @@ function setup() {
                 let player = players[0];
 
                 //changes the speed of the player
-                player.vx = -2.5;
+                player.vx = -3;
                 if (slowDownPowerUp === true){
-                    player.vx = -1.5;
+                    player.vx = -2;
                 }
             }
             //runs if the player pressed right arrow
@@ -677,9 +711,9 @@ function setup() {
                 let player = players[0];
 
                 //changes the speed of the player
-                player.vx = 2.5;
+                player.vx = 3;
                 if (slowDownPowerUp === true){
-                    player.vx = 1.5;
+                    player.vx = 2;
                 }
             }
             else if ((e.keyCode == "70" || e.keyCode == "32") && shootPowerUp === true && uLost ===false){
@@ -687,25 +721,6 @@ function setup() {
                 spawnBullet();
             }
         }
-
-        //runs checkKey if a key i pressed.
-        document.onkeyup = checkKeyUp;
-
-        function checkKeyUp(e) {
-
-            e = e || window.event;
-            let player = players[0];
-
-            //runs if the player pressed left arrow
-            if ((e.keyCode == '37' && player.vx <0) || e.keyCode =='39' && player.vx>0) {
-                
-                //gets the value of the player
-                player.vx=0;
-            } 
-           
-        }
-
-        
 
         //return true if collison is found
         function kollisjon(a, b) {
