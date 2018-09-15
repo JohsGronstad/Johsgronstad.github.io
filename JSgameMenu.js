@@ -5,8 +5,8 @@ function setup(){
     let divMain = document.getElementById("main");
     var btnStart = document.getElementById("start");
 
-    let ScreenHeight = window.innerHeight;
-   
+    let screenHeight = window.innerHeight;
+    document.getElementById("main").style.marginTop = (-screenHeight/2) + "px";
 
     let divMenuTitle = document.getElementById("menuTitle");
     divMenuTitle.innerHTML = "Meteor Dodge!";
