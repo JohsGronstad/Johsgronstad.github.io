@@ -173,10 +173,12 @@ function setup() {
     let divMain = document.getElementById("main");
     let divHighScore = document.getElementById("highScore");
 
-    divHighScore.innerHTML = localStorage.getItem('player name') + ": " +localStorage.getItem('top score');
+    if (localStorage.getItem('player name') === null && localStorage.getItem('top score') === null){
+        divHighScore.innerHTML = "";
+    } else {
+        divHighScore.innerHTML = localStorage.getItem('player name') + ": " +localStorage.getItem('top score');
+    }
     
-    
-
     let screenHeight = window.innerHeight;
     console.log(screenHeight);
 
@@ -188,6 +190,12 @@ function setup() {
     playerInput.className = "playerInput"     
     divMain.appendChild(playerInput);
     playerInput.hidden = true;
+
+    let SaveHS = document.createElement("div");
+    SaveHS.className = "SaveHS";
+    divMain.appendChild(SaveHS);
+    SaveHS.addEventListener("click", setHighScore);
+    SaveHS.hidden = true;
 
     document.getElementById("main").style.marginTop = (-screenHeight/2) + "px";
 
@@ -480,12 +488,11 @@ function setup() {
                         if (scoreInt> +localStorage.getItem('top score')){
 
                             playerInput.hidden = false;
-
-                            let SaveHS = document.createElement("div");
-                            SaveHS.className = "SaveHS";
-                            SaveHS.innerHTML = "Save HS";
-                            divMain.appendChild(SaveHS);
-                            SaveHS.addEventListener("click", setHighScore);
+                            playerInput.placeholder = "Name:"
+                            SaveHS.hidden = false;
+                            SaveHS.innerHTML = "Save High Score";
+                            
+                            
 
 
                         }
@@ -540,9 +547,12 @@ function setup() {
         function setHighScore(){
             console.log(playerInput.value);
             localStorage.setItem('player name', playerInput.value);
+            SaveHS.hidden = true;
+            playerInput.hidden = true;
 
             localStorage.setItem('top score', scoreInt.toString());
             divHighScore.innerHTML = localStorage.getItem('player name') + ": " +localStorage.getItem('top score');
+            
         }
 
         //adds new player (runs when btnStart is pressed)

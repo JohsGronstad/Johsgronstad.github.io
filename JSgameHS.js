@@ -1,8 +1,21 @@
-//@ts-check
 
-function highScores(){
-    let divHighScore = document.getElementById("highScore");
+function firebase(){
+    var config = {
+        apiKey: "AIzaSyBdmHkyJnidRPrHJ8V0gd6KLZEZW58KmIQ",
+        authDomain: "meteordodge-c1dd4.firebaseapp.com",
+        databaseURL: "https://meteordodge-c1dd4.firebaseio.com",
+        projectId: "meteordodge-c1dd4",
+        storageBucket: "meteordodge-c1dd4.appspot.com",
+        messagingSenderId: "705491939625"
+    };
+   
 
-    var score = 10;
-    localStorage.setItem('score', score.toString());
+
+  const preObject = document.getElementById("object");
+
+  const dbRefObject = firebase.database().ref().child("object");
+
+  dbRefObject.on('value', snap=> console.log(snap.val()));
+
+  
 }
