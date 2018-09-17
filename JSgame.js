@@ -709,9 +709,9 @@ function setup() {
                 let player = players[0];
 
                 //changes the speed of the player
-                player.vx = -3;
+                player.vx = -2.5;
                 if (slowDownPowerUp === true){
-                    player.vx = -2;
+                    player.vx = -1.5;
                 }
             }
             //runs if the player pressed right arrow
@@ -721,9 +721,9 @@ function setup() {
                 let player = players[0];
 
                 //changes the speed of the player
-                player.vx = 3;
+                player.vx = 2.5;
                 if (slowDownPowerUp === true){
-                    player.vx = 2;
+                    player.vx = 1.5;
                 }
             }
             else if ((e.keyCode == "70" || e.keyCode == "32") && shootPowerUp === true && uLost ===false){
