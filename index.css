@@ -1,0 +1,15 @@
+body{
+    padding: 20px;
+    text-align: center;
+    background-color: #669293f0;
+}
+
+h1{
+    font-size: 3em;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+}
