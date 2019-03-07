@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BNS-CASINO</title>
+    <link rel="stylesheet" href="canvas.css">
+    <script src="roulette.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>BNS-CASINO</h1>
+        <p>BASTA CASINO</p>
+    </div>
+    <div class="row">
+        <div class="side" id="divSide">
+            <h2>Select Game</h2>
+            <div class="btn">ROULETTE</div>
+            <a href="bj.html">
+                <div class="btn">BLACK-JACK</div>
+            </a>
+            <div class="btn">DEPOSIT</div>
+        </div>
+        <div id="main" class="main">
+            <input placeholder="Enter betting amount..." type="" id="inpAmount">
+            <div id="preResults">Previous Results:</div>
+            <canvas id="canRoulette">
+            </canvas>
+
+        </div>
+    </div>
+    <script>roulette();</script>
+</body>
+
+</html>

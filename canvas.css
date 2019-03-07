@@ -1,0 +1,102 @@
+a{
+  text-decoration: none;
+  color: black;
+}
+
+body {
+    font-family:Helvetica;
+    margin: 0;
+    overflow: hidden;
+  }
+
+.header {
+    padding: 20px; /* some padding */
+    text-align: center; /* center the text */
+    background: black; /* green background */
+    color: white; /* white text color */
+  }
+  
+  /* Increase the font size of the <h1> element */
+  .header h1 {
+    font-size: 40px;
+  }
+
+  /* Ensure proper sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Column container */
+.row { 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 20%; /* Set the width of the sidebar */
+  background-color: #f1f1f1; /* Grey background color */
+  padding: 20px; /* Some padding */
+  text-align: center;
+}
+
+/* Main column */
+.main { 
+  background-color: white; /* White background color */
+  padding-left: 20px; /* Some padding */
+}
+
+.btn{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    margin: -1px;
+}
+
+canvas{
+    background-color: #f1f1f1;
+}
+
+.box{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+#inpAmount{
+  position: absolute;
+  top: 410px;
+  width: 200px;
+  height: 30px;;
+  background-color: grey;
+  color: white;
+}
+
+input{
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: .8em;
+  
+}
+
+input::placeholder{
+  color: white;
+}
+
+#preResults{
+    position: absolute;
+    top: 383px;
+}
+
+
+
+
+
+
+
+
