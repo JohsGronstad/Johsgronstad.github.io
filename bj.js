@@ -58,6 +58,8 @@ function bj() {
     inGame = false;
     playerTurn = true;
 
+    let resultText = "";
+
     //create deck
     createDeck();
     function createDeck() {
@@ -89,7 +91,7 @@ function bj() {
         checkIfFinished();
     }
 
-    function drawCards(){
+    function drawCards() {
 
         for (let i = 0; i < playerHand.length; i++) {
             let card = playerHand[i];
@@ -105,17 +107,27 @@ function bj() {
         }
     }
 
-    function drawText(){
+    function drawText() {
         c.font = "10px Helvetica";
         c.fillStyle = "black";
         c.textAlign = "center";
         c.font = "15px Helvetica";
         c.fillText("Dealer: " + calcValue(dealerHand), canBj.width / 6, 200)
         c.fillText("Player: " + calcValue(playerHand), canBj.width / 6, 350)
+
+
+        if (!inGame && !first) {
+            c.font = "10px Helvetica";
+            c.fillStyle = "black";
+            c.textAlign = "center";
+            c.font = "15px Helvetica";
+            c.fillText(resultText, canBj.width / 2, 140);
+            console.log(resultText)
+        }
     }
 
-    function drawButtons(){
-        if (!inGame && first) {
+    function drawButtons() {
+        if (!inGame) {
             btnStart = new Button(canBj.width / 2 - 25, canBj.width / 2 + 25, 50, 100, "black", "start")
         }
 
@@ -126,7 +138,7 @@ function bj() {
     }
 
 
-    function checkIfFinished(){
+    function checkIfFinished() {
         if (calcValue(playerHand) > 21) {
             checkWinner();
             inGame = false;
@@ -202,11 +214,14 @@ function bj() {
         playerTurn = true;
         first = false;
 
+        playerHand = [];
+        dealerHand = [];
+
         playerHand.push(pickRandomCard());
         dealerHand.push(pickRandomCard());
         playerHand.push(pickRandomCard());
 
-        if (calcValue(playerHand) == 21 && (calcValue(dealerHand)!== 10)) {
+        if (calcValue(playerHand) == 21 && (calcValue(dealerHand) !== 10)) {
             inGame = false;
             checkWinner();
             console.log("jau");
@@ -232,9 +247,11 @@ function bj() {
 
         if (dealerValue == 21 || (dealerValue > playerValue && dealerValue < 21) || playerValue > 21) {
             console.log("dealer wins")
+            resultText = "Dealer Wins!"
         } else if (dealerValue == playerValue) {
             console.log("push")
         } else {
+            resultText = "You Win!"
             console.log("player wins")
         }
     }
