@@ -250,6 +250,7 @@ function bj() {
             resultText = "Dealer Wins!"
         } else if (dealerValue == playerValue) {
             console.log("push")
+            resultText = "Push!"
         } else {
             resultText = "You Win!"
             console.log("player wins")
