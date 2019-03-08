@@ -227,6 +227,9 @@ function bj() {
         playerTurn = true;
         first = false;
 
+        deck = []
+        createDeck();
+
         playerHand = [];
         dealerHand = [];
 
