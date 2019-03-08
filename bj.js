@@ -91,6 +91,7 @@ function bj() {
         checkIfFinished();
     }
 
+    //draws card on canvas in animate func
     function drawCards() {
 
         for (let i = 0; i < playerHand.length; i++) {
@@ -107,6 +108,7 @@ function bj() {
         }
     }
 
+    //draws text in animate func
     function drawText() {
         c.font = "10px Helvetica";
         c.fillStyle = "black";
@@ -126,6 +128,8 @@ function bj() {
         }
     }
 
+
+    //draws buttons in animate func
     function drawButtons() {
         if (!inGame) {
             btnStart = new Button(canBj.width / 2 - 25, canBj.width / 2 + 25, 50, 100, "black", "start")
@@ -138,13 +142,14 @@ function bj() {
     }
 
 
+    //check if game is finsished in animate func
     function checkIfFinished() {
-        if (calcValue(playerHand) > 21) {
+        if (Number(calcValue(playerHand)) > 21) {
             checkWinner();
             inGame = false;
         }
 
-        if (!playerTurn && (calcValue(dealerHand) < 18 || calcValue(dealerHand).includes("/"))) {
+        if (!playerTurn && (Number(calcValue(dealerHand)) < 18 || calcValue(dealerHand).includes("/") )) {
             let card = pickRandomCard();
             dealerHand.push(card);
             if (calcValue(dealerHand) >= 17) {
@@ -154,6 +159,11 @@ function bj() {
         }
     }
 
+    /**
+     * 
+     * @param {array} hand inneholder alle kortene som er på ei hånd
+     * @returns {String} returnerer verdien til hånda
+     */
     function calcValue(hand) {
         let value = 0;
         let string = "";
@@ -179,6 +189,9 @@ function bj() {
         if (hValue == "11/21") {
             hValue = "21"
         }
+
+
+        hValue = String(hValue)
         return hValue;
     }
 
@@ -196,9 +209,8 @@ function bj() {
         if (btnHit.checkClick() && playerTurn) {
             let card = pickRandomCard();
             playerHand.push(card);
-            calcValue(playerHand, playerValue)
 
-            if (playerValue > 21) {
+            if (Number(calcValue(playerHand)) > 21) {
                 inGame = false;
                 checkWinner();
             }
@@ -209,6 +221,7 @@ function bj() {
         }
     }
 
+    //runs when player hits Start
     function play() {
         inGame = true;
         playerTurn = true;
@@ -221,39 +234,38 @@ function bj() {
         dealerHand.push(pickRandomCard());
         playerHand.push(pickRandomCard());
 
-        if (calcValue(playerHand) == 21 && (calcValue(dealerHand) !== 10)) {
+        if (Number(calcValue(playerHand)) == 21 && Number((calcValue(dealerHand)) !== 10)) {
             inGame = false;
             checkWinner();
             console.log("jau");
         }
     }
 
+
+    //checks winner when game has ended
     function checkWinner() {
         let playerValue = calcValue(playerHand);
         let dealerValue = calcValue(dealerHand);
 
-        if (playerValue == String) {
+        if (playerValue.includes("/")) {
             playerValue = 0;
             playerHand.forEach(e => {
                 playerValue += Number(e.value)
             });
         }
-        if (playerValue == String) {
+        if (dealerValue.includes("/")) {
             dealerValue = 0;
-            dealerValue.forEach(e => {
+            dealerHand.forEach(e => {
                 dealerValue += Number(e.value)
             });
         }
 
-        if (dealerValue == 21 || (dealerValue > playerValue && dealerValue < 21) || playerValue > 21) {
-            console.log("dealer wins")
+        if (Number(dealerValue) == 21 || (Number(dealerValue) > Number(playerValue) && Number(dealerValue) < 21) || Number(playerValue) > 21) {
             resultText = "Dealer Wins!"
         } else if (dealerValue == playerValue) {
-            console.log("push")
             resultText = "Push!"
         } else {
             resultText = "You Win!"
-            console.log("player wins")
         }
     }
 
@@ -300,5 +312,5 @@ function bj() {
             ) return true;
         }
     }
-
 }
+
