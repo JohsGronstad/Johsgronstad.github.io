@@ -241,7 +241,7 @@ function bj() {
         playerHand.push(pickRandomCard());
 
         //check if BlackJack
-        if (Number(calcValue(playerHand)) == 21 && Number((calcValue(dealerHand)) !== 10) && !calcValue.includes("/")) {
+        if (Number(calcValue(playerHand)) == 21 && Number((calcValue(dealerHand)) !== 10) && !calcValue(dealerHand).includes("/")) {
             inGame = false;
             resultText = "BlackJack"
             console.log("jau");
