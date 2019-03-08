@@ -132,7 +132,7 @@ function bj() {
     //draws buttons in animate func
     function drawButtons() {
         if (!inGame) {
-            btnStart = new Button(canBj.width / 2 - 25, canBj.width / 2 + 25, 50, 100, "black", "start")
+            btnStart = new Button(canBj.width / 2 - 25, canBj.width / 2 + 25, 50, 100, "black", "Start")
         }
 
         if (inGame) {
@@ -244,7 +244,6 @@ function bj() {
         if (Number(calcValue(playerHand)) == 21 && Number((calcValue(dealerHand)) !== 10) && !calcValue(dealerHand).includes("/")) {
             inGame = false;
             resultText = "BlackJack"
-            console.log("jau");
         }
     }
 
@@ -267,10 +266,10 @@ function bj() {
             });
         }
 
-        if (Number(dealerValue) == 21 || (Number(dealerValue) > Number(playerValue) && Number(dealerValue) < 21) || Number(playerValue) > 21) {
-            resultText = "Dealer Wins!"
-        } else if (dealerValue == playerValue) {
+        if (dealerValue == playerValue) {
             resultText = "Push!"
+        } else if (Number(dealerValue) == 21 || (Number(dealerValue) > Number(playerValue) && Number(dealerValue) < 21) || Number(playerValue) > 21) {
+            resultText = "Dealer Wins!"
         } else {
             resultText = "You Win!"
         }
