@@ -161,8 +161,8 @@ function bj() {
 
     /**
      * 
-     * @param {array} hand inneholder alle kortene som er på ei hånd
-     * @returns {String} returnerer verdien til hånda
+     * @param {array} hand Array containing all cards on one hand
+     * @returns {String} returns value of String
      */
     function calcValue(hand) {
         let value = 0;
@@ -227,16 +227,20 @@ function bj() {
         playerTurn = true;
         first = false;
 
+        //create a new, full deck
         deck = []
         createDeck();
 
+        //empty hands
         playerHand = [];
         dealerHand = [];
 
+        //give player 2 cards and dealer 1
         playerHand.push(pickRandomCard());
         dealerHand.push(pickRandomCard());
         playerHand.push(pickRandomCard());
 
+        //check if BlackJack
         if (Number(calcValue(playerHand)) == 21 && Number((calcValue(dealerHand)) !== 10) && !calcValue.includes("/")) {
             inGame = false;
             resultText = "BlackJack"
