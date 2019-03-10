@@ -88,6 +88,8 @@ function bj() {
 
         drawButtons();
 
+        addDealerCards();
+
         checkIfFinished();
     }
 
@@ -148,8 +150,11 @@ function bj() {
             checkWinner();
             inGame = false;
         }
+    }
 
-        if (!playerTurn && (Number(calcValue(dealerHand)) < 18 || calcValue(dealerHand).includes("/") )) {
+    //gives dealer new cards if dealers value is less than 17
+    function addDealerCards(){
+        if (!playerTurn && (Number(calcValue(dealerHand)) < 17 || calcValue(dealerHand).includes("/") )) {
             let card = pickRandomCard();
             dealerHand.push(card);
             if (calcValue(dealerHand) >= 17) {
@@ -241,7 +246,7 @@ function bj() {
         playerHand.push(pickRandomCard());
 
         //check if BlackJack
-        if (Number(calcValue(playerHand)) == 21 && Number((calcValue(dealerHand)) !== 10) && !calcValue(dealerHand).includes("/")) {
+        if (Number(calcValue(playerHand)) == 21 && (Number((calcValue(dealerHand)))!== 10) && !calcValue(dealerHand).includes("/")) {
             inGame = false;
             resultText = "BlackJack"
         }
