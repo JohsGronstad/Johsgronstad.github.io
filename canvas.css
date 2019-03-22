@@ -47,6 +47,10 @@ body {
   padding-left: 20px; /* Some padding */
 }
 
+#depositUI{
+  padding: 20px;
+}
+
 .btn{
     padding: 10px;
     text-align: center;
@@ -56,6 +60,15 @@ body {
 
 canvas{
     background-color: #f1f1f1;
+}
+
+#screen{
+  background-color: #f1f1f1;
+}
+
+#deposit{
+  position: absolute;
+  text-align: center; /* center the text */
 }
 
 .box{

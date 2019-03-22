@@ -36,6 +36,8 @@ function bj() {
     //links to html
     let canBj = document.getElementById("canBj");
     divSide = document.getElementById("divSide");
+    inpAmount = document.getElementById("inpAmount");
+
     c = canBj.getContext("2d");
 
     //fix size if resized
@@ -45,7 +47,9 @@ function bj() {
         canBj.height = innerHeight;
         canBj.width = innerWidth * 0.7;
         divSide.style.height = innerHeight + "px";
-        divSide.style.width = innerWidth * 0.3;
+        inpAmount.style.left = innerWidth - canBj.width / 2 - 100 + "px";
+        inpAmount.style.top = 180 + "px";
+
     }
 
     //arrays
@@ -58,7 +62,11 @@ function bj() {
     inGame = false;
     playerTurn = true;
 
+
     let resultText = "";
+    let bank = Number(localStorage.getItem("bank"));
+    let intBetAmount = 0;
+
 
     //create deck
     createDeck();
@@ -91,6 +99,8 @@ function bj() {
         addDealerCards();
 
         checkIfFinished();
+
+        localStorage.setItem("bank", bank)
     }
 
     //draws card on canvas in animate func
@@ -119,9 +129,11 @@ function bj() {
         c.fillText("Dealer: " + calcValue(dealerHand), canBj.width / 6, 200)
         c.fillText("Player: " + calcValue(playerHand), canBj.width / 6, 350)
 
+        c.font  = "15px Helvetica"
+        c.fillText("Bank Account: " + localStorage.getItem("bank") + "kr", 100,30);
+
 
         if (!inGame && !first) {
-            c.font = "10px Helvetica";
             c.fillStyle = "black";
             c.textAlign = "center";
             c.font = "15px Helvetica";
@@ -163,11 +175,11 @@ function bj() {
             }
         }
     }
-
+ 
     /**
-     * 
+     *
      * @param {array} hand Array containing all cards on one hand
-     * @returns {String} returns value of String
+     * @returns {String} returns value as string
      */
     function calcValue(hand) {
         let value = 0;
@@ -208,10 +220,11 @@ function bj() {
         mouseX = e.pageX - (innerWidth - canBj.width);
         mouseY = e.pageY - 175;
 
-        if (btnStart.checkClick() && !inGame) {
+        if (btnStart.checkClick() && !inGame && inpAmount.value<= bank) {
             play()
         }
-        if (btnHit.checkClick() && playerTurn) {
+
+        if (btnHit.checkClick() && playerTurn && calcValue(playerHand) !== "21") {
             let card = pickRandomCard();
             playerHand.push(card);
 
@@ -222,7 +235,8 @@ function bj() {
         }
         if (btnStand.checkClick()) {
             playerTurn = false;
-
+            
+            dealerHand.splice(1 , 1);
         }
     }
 
@@ -232,6 +246,12 @@ function bj() {
         playerTurn = true;
         first = false;
 
+        intBetAmount = Number(inpAmount.value);
+
+        bank -= intBetAmount;
+        console.log(intBetAmount)
+
+        inpAmount.setAttribute("type", "hidden");
         //create a new, full deck
         deck = []
         createDeck();
@@ -244,11 +264,16 @@ function bj() {
         playerHand.push(pickRandomCard());
         dealerHand.push(pickRandomCard());
         playerHand.push(pickRandomCard());
+        dealerHand.push(new Card("None", "0"))
+
 
         //check if BlackJack
         if (Number(calcValue(playerHand)) == 21 && (Number((calcValue(dealerHand)))!== 10) && !calcValue(dealerHand).includes("/")) {
             inGame = false;
+            inpAmount.removeAttribute("type", "hidden");
             resultText = "BlackJack"
+
+            bank += intBetAmount * 2.5;
         }
     }
 
@@ -273,11 +298,14 @@ function bj() {
 
         if (dealerValue == playerValue) {
             resultText = "Push!"
+            bank += Number(intBetAmount);
         } else if (Number(dealerValue) == 21 || (Number(dealerValue) > Number(playerValue) && Number(dealerValue) < 21) || Number(playerValue) > 21) {
             resultText = "Dealer Wins!"
         } else {
             resultText = "You Win!"
+            bank += intBetAmount *2;
         }
+        inpAmount.removeAttribute("type", "hidden");
     }
 
     //returns a random card

@@ -27,7 +27,7 @@ function roulette() {
 
         update() {
 
-            if (this.dx <= 0 ) {
+            if (this.dx <= 0) {
                 this.dx = 0;
 
                 //checks winner one time after the spin stop
@@ -49,7 +49,7 @@ function roulette() {
     let divSide = document.getElementById("divSide");
     let canRoulette = document.getElementById("canRoulette")
     let inpAmount = document.getElementById("inpAmount");
-    let preResults = document.getElementById("preResults")    
+    let preResults = document.getElementById("preResults")
 
     let c = canRoulette.getContext("2d");
 
@@ -60,6 +60,11 @@ function roulette() {
     //mouse position
     let mouseX = 0;
     let mouseY = 0;
+
+    //
+    let bank = Number(localStorage.getItem("bank"));
+    let betColor = ""
+    let betAmount = 0;
 
 
     //boolean
@@ -72,7 +77,6 @@ function roulette() {
         canRoulette.height = innerHeight;
         canRoulette.width = innerWidth * 0.7;
         divSide.style.height = innerHeight + "px";
-        divSide.style.width = innerWidth * 0.3;
         inpAmount.style.left = innerWidth - canRoulette.width / 2 - 100 + "px";
         preResults.style.left = (innerWidth - canRoulette.width) + canRoulette.width / 8 + "px";
 
@@ -81,9 +85,9 @@ function roulette() {
     //draws the boxes at the start
     makeBox();
     function makeBox() {
-        let dx = (Math.random()*24 + 25);
-        console.log(dx);
 
+        //min speed lands at 7 and max speed lands at green to ensure  the wheel is randomized
+        let dx = (Math.random() * 24 + 25);
 
         let a = 1;
         for (let i = 0; i < 300; i++) {
@@ -93,21 +97,21 @@ function roulette() {
             let y = 150;
 
             let number = 0;
-            
-            if ((i%15) % 2 == 0 && (i%15 !==0)) {
+
+            if ((i % 15) % 2 == 0 && (i % 15 !== 0)) {
                 color = "red";
                 number = a;
                 a++;
-                if(a==8){
-                    a=1;
+                if (a == 8) {
+                    a = 1;
                 }
             }
 
-            if ((i%15) % 2 !== 0 && (i%15 !==0)) {
+            if ((i % 15) % 2 !== 0 && (i % 15 !== 0)) {
                 color = "black";
-                number = 15-a;
-            }    
-            
+                number = 15 - a;
+            }
+
 
             if (i % 15 == 0) {
                 color = "green";
@@ -118,7 +122,7 @@ function roulette() {
             boxArray.push(box);
             box.update();
         }
-    }    
+    }
 
     //animation function
     animate();
@@ -137,13 +141,14 @@ function roulette() {
             });
         }
 
+        localStorage.setItem("bank", bank);
 
         if (winnersArray.length > 10) {
             winnersArray.shift();
         }
 
         drawPreResults();
-        
+
         boxArray.forEach(e => {
             e.draw()
         });
@@ -169,6 +174,11 @@ function roulette() {
         c.fill();
         c.closePath();
 
+        c.fillStyle = "black";
+        c.textAlign = "center";
+        c.font = "15px Helvetica";
+        c.fillText("Bank Account: " + bank + "kr", 100, 30);
+
 
     }
 
@@ -178,13 +188,21 @@ function roulette() {
         boxArray.forEach(e => {
             if (e.x < 500 && e.x > 500 - 50) {
 
+                if (e.color == betColor) {
+                    if (betColor == "green") {
+                        bank += (betAmount * 14);
+                    }
+                    else bank += betAmount * 2;
+                }
                 winnersArray.push(e);
             }
         });
+
+
     }
 
     //draws previous results
-    function drawPreResults(){
+    function drawPreResults() {
         for (let i = 0; i < winnersArray.length; i++) {
 
             let box = winnersArray[i];
@@ -215,6 +233,27 @@ function roulette() {
     function mouseClick(e) {
         mouseX = e.pageX - (innerWidth - canRoulette.width);
         mouseY = e.pageY - 175;
+        spinAndSetBet();
+ 
+
+    }
+
+    //function on mouseclick
+    function spinAndSetBet(){
+        if(0 >=Math.floor(inpAmount.value) || inpAmount.value> bank){
+            console.log("return");
+            return;
+        }
+        if (btnRed.checkClick() && !spin) {
+            setBet("red");
+        }
+        if (btnBlack.checkClick() && !spin) {
+            setBet("black");
+        }
+        if (btnGreen.checkClick() && !spin) {
+            setBet("green");
+        }
+
 
         //The wheel will start spinning again if a button is pressed and the wheel is not spinnig
         if ((btnRed.checkClick() || btnBlack.checkClick() || btnGreen.checkClick()) && !spin) {
@@ -227,6 +266,14 @@ function roulette() {
         boxArray = [];
         spin = true;
         makeBox();
+    }
+
+    function setBet(color) {
+        
+
+        betAmount = Math.floor(inpAmount.value);
+        bank -= betAmount;
+        betColor = color;
     }
 
 
